@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.data.mapper.impala.ImpalaMapper">
+
+	<insert id="executeSql" parameterType="com.data.model.Person">
+        insert into test_person values(#{id},#{name});
+    </insert>
+    <select id="selectSql" resultType="com.data.model.Person">
+        select * from test_person;
+    </select>
+    <select id="selectSqlByPage" resultType="com.data.model.Person">
+        select * from test_person order by id limit 5 offset 0;
+    </select>
+    <update id="updateSql" parameterType="com.data.model.Person">
+        update test_person set name=#{name} where id=#{id};
+    </update>
+
+    <delete id="deleteSql" parameterType="com.data.model.Person">
+        delete from test_person where id=#{id};
+    </delete>
+
+</mapper>
+
